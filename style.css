@@ -219,3 +219,65 @@ body > p:hover {
   color: #0071c5;
   background-color: #f0f7ff;
 }
+
+/* ===== BOOTSTRAP 3-COLUMN OVERRIDES ===== */
+/* Scope this section so it doesn't inherit timeline card styles */
+.three-col-section {
+  display: block;
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+/* Reset the styles applied by generic `section > div` for this block */
+.three-col-section > div {
+  display: block;
+  background: none;
+  box-shadow: none;
+  width: auto;
+  padding: 0;
+  text-align: start;
+  border-left: none;
+}
+
+.three-col-section p {
+  /* Ensure paragraphs are visible (timeline rules hide `section p`) */
+  opacity: 1;
+  color: #333;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.third-col {
+  background-color: #f0f7ff;
+  border-inline-start: 4px solid #0071c5;
+  padding: 20px;
+  border-radius: 6px;
+}
+.third-col h2 {
+  color: #005099;
+}
+.third-col a {
+  color: #0071c5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===== SUBSCRIBE SECTION & FOOTER ===== */
+.subscribe-section {
+  /* Neutralize generic `section` rules so this block is not a flex container */
+  display: block;
+  background-color: #ffffff;
+  padding: 40px 20px;
+}
+.subscribe-section > .container {
+  max-width: 760px;
+}
+.subscribe-section .form-control {
+  min-height: 44px;
+}
+
+.site-footer a { color: inherit; }
+.site-footer a:hover { text-decoration: underline; opacity: 0.95; }
+
+/* Use logical margin for better RTL/LTR compatibility */
+.site-footer .me-3 { margin-inline-end: 1rem; }
