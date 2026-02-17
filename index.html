@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,19 +12,25 @@
   <!-- Header / Hero Section -->
   <header>
     <div>
-      <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
-      <!-- Main Heading let see if this works -->
+      <!-- Ask Copilot to teach you about `.svg`. You'll need to resize the logo with CSS. -->
+      <img src="img/intel-header-logo.svg" alt="Intel logo" />
+      <!-- Main heading — let's see if this works -->
       <h1>
         Sustainability Through the Ages
       </h1>
 
       <!-- Subheading / Description -->
       <p>
-        Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology 
-        and our planet.
+        Explore Intel's journey through time, discovering how our commitment to
+        innovation has shaped a more sustainable future for technology and our
+        planet.
       </p>
+      <!-- Intro modal trigger -->
+      <div class="mt-4">
+        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#introModal">
+          About RISE
+        </button>
+      </div>
     </div>
   </header>
 
@@ -139,5 +146,113 @@
     </div>
   </section>
   <p>Scroll to view timeline | Hover over cards to learn more!</p>
+
+    <!-- Three-column Bootstrap section (RTL-scoped) -->
+  <section class="three-col-section" dir="rtl">
+    <div class="container my-5">
+      <div class="row g-4">
+        <!-- Column 1 -->
+        <div class="col-12 col-md-4">
+          <h2 class="h5">RISE Strategy</h2>
+          <p>
+            Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
+            Intel sets ambitious 2030 goals, including driving industry-wide 
+            progress on climate action, water stewardship, and waste reduction.
+          </p>
+          <a class="btn btn-link p-0" href="#">Learn More</a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-12 col-md-4">
+          <h2 class="h5">Commitment</h2>
+          <p>
+            In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
+            (Scope 1 and 2) by 2040. This commitment builds on decades of 
+            environmental initiatives and partnerships across the semiconductor 
+            industry.
+          </p>
+          <a class="btn btn-link p-0" href="#">Learn More</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-12 col-md-4 third-col">
+          <h2 class="h5">Water &amp; Waste</h2>
+          <p>
+            Intel conserves billions of gallons of water annually and 
+            collaborates with local communities to restore watersheds.
+            Intel also upcycles and recycles materials to reduce waste and 
+            advance a circular economy.
+          </p>
+          <a class="btn btn-link p-0" href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Form (Bootstrap) -->
+  <section class="subscribe-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <h2 class="h4 mb-3 text-center">Subscribe to our Newsletter</h2>
+          <form class="row g-2" action="#" method="post" novalidate>
+            <div class="col-12 col-md-7">
+              <label for="sub-email" class="visually-hidden">Email address</label>
+              <input type="email" class="form-control" id="sub-email" placeholder="you@example.com" required>
+            </div>
+            <div class="col-12 col-md-5 d-grid">
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
+            <div class="col-12">
+              <div class="form-text text-center">We respect your privacy. Unsubscribe anytime.</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer bg-dark text-white py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+          &copy; <span id="year"></span> Intel Corporation. All rights reserved.
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end">
+          <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+          <a href="#" class="text-white text-decoration-none me-3">Terms of Use</a>
+          <a href="#" class="text-white text-decoration-none">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Intro Modal -->
+  <div class="modal fade" id="introModal" tabindex="-1" aria-labelledby="introModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="introModalLabel">About Intel's RISE Strategy</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>RISE stands for Responsible, Inclusive, Sustainable, Enabling — Intel's framework for driving sustainability across products, operations, and the industry.</p>
+          <ul>
+            <li>Climate action and net-zero targets</li>
+            <li>Water stewardship and conservation</li>
+            <li>Waste reduction and circular economy</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="#" class="btn btn-primary">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="rtl-detector.js"></script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
