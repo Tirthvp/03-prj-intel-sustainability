@@ -1,0 +1,221 @@
+/* ===== GENERAL STYLES ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== HEADER / HERO SECTION ===== */
+header {
+  /* Intel-branded blue background gradient */
+  background: linear-gradient(135deg, #0071c5 0%, #005099 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Container inside header */
+header div {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== LOGO SIZING ===== */
+header img {
+  /* Resize logo to appropriate size */
+  width: 120px;
+  height: auto;
+  margin-bottom: 30px;
+  /* Add white filter to make logo stand out on blue background */
+  filter: brightness(0) invert(1);
+}
+
+/* ===== HEADLINE (H1) ===== */
+header h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 20px 0;
+  line-height: 1.2;
+  /* Ensure high contrast with background */
+  color: #ffffff;
+}
+
+/* ===== SUBHEADING (P TAG) ===== */
+header p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 20px 0 0 0;
+  color: #e8e8e8;
+  /* Light gray for subtle contrast */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== TIMELINE CARDS SECTION ===== */
+section {
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+  /* Display cards using Flexbox */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  /* On small screens, stack vertically (flex-wrap: wrap is default) */
+}
+
+/* Large screens: horizontal scrolling layout with scroll snap */
+@media (min-width: 1024px) {
+  section {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 60px 20px;
+    /* Enable smooth scroll snapping for each card */
+    scroll-snap-type: x mandatory;
+    /* Smooth scrolling behavior for better UX */
+    scroll-behavior: smooth;
+  }
+}
+
+/* Individual card styling */
+section > div {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 20px;
+  text-align: center;
+  /* Intel blue left border accent */
+  border-left: 4px solid #0071c5;
+  /* Smooth transitions for all hover effects */
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.3s ease, 
+              background-color 0.3s ease,
+              border-left-color 0.3s ease;
+  position: relative;
+  /* Scroll snap: cards snap to start of viewport */
+  scroll-snap-align: start;
+  /* Force card to snap (no skipping) */
+  scroll-snap-stop: always;
+  /* Prevent cards from shrinking in flex container */
+  flex-shrink: 0;
+  /* Enable 3D perspective for transforms */
+  perspective: 1000px;
+}
+
+/* Hover effect for cards - reveal additional details */
+section > div:hover {
+  /* Lift card with subtle scale and rotation for depth */
+  transform: translateY(-12px) scale(1.02) rotateX(2deg);
+  /* Enhanced shadow for dramatic depth effect */
+  box-shadow: 0 20px 40px rgba(0, 113, 197, 0.2),
+              0 0 1px rgba(0, 0, 0, 0.1);
+  /* Subtle background highlight on hover */
+  background-color: #f9fbff;
+  /* Highlight border on hover */
+  border-left-color: #005099;
+}
+
+/* Enhance description visibility on hover */
+section > div:hover p {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Card image styling */
+section img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  /* Smooth transitions for brightness and scale */
+  transition: brightness 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.3s ease;
+}
+
+/* Enhance image brightness and add subtle zoom on hover for visual feedback */
+section > div:hover img {
+  brightness: 1.15;
+  /* Subtle zoom effect on image */
+  transform: scale(1.05);
+}
+
+/* Card year (h2) styling */
+section h2 {
+  font-size: 24px;
+  color: #0071c5;
+  margin: 15px 0 10px 0;
+  font-weight: bold;
+  /* Smooth transition for hover effect */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Enhance year styling on hover with subtle animation */
+section > div:hover h2 {
+  color: #005099;
+  /* Slight upward movement for engagement */
+  transform: translateY(-2px);
+}
+
+/* Card title (h3) styling */
+section h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 15px 0;
+  font-weight: bold;
+  /* Smooth color transition for hover effect */
+  transition: color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              text-shadow 0.3s ease;
+}
+
+/* Highlight title on hover - reveal importance with glow effect */
+section > div:hover h3 {
+  color: #0071c5;
+  /* Subtle glow effect on title */
+  text-shadow: 0 0 8px rgba(0, 113, 197, 0.3);
+}
+
+/* Card description (p) styling */
+section p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  /* Hide description initially */
+  opacity: 0;
+  /* Smooth transition for all text properties on hover let see */
+  transition: opacity 0.3s ease,
+              color 0.3s ease, 
+              font-weight 0.3s ease,
+              letter-spacing 0.3s ease;
+}
+
+/* Show description and make it prominent on hover */
+section > div:hover p {
+  /* Reveal description with full opacity */
+  opacity: 1;
+  color: #333;
+  font-weight: 500;
+  /* Slight letter spacing for improved readability */
+  letter-spacing: 0.3px;
+}
+
+/* Bottom instruction text */
+body > p {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 16px;
+  color: #666;
+  background-color: #ffffff;
+  margin: 0;
+  /* Smooth transition for hover effects */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Add subtle hover effect to instruction text */
+body > p:hover {
+  color: #0071c5;
+  background-color: #f0f7ff;
+}
